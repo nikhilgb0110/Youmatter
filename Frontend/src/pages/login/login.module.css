@@ -5,16 +5,17 @@
   align-items: center;
   justify-content: center;
   /* background: linear-gradient(135deg, #5efce8 0%, #706cd7d0 100%); */
-  background-image: linear-gradient(135deg, #f7f3ef 0%, #c0aa99 100%);
+  /* background-image: linear-gradient(135deg, #f7f3ef 0%, #c0aa99 100%); */
+  background: black;
 }
 
 .loginContainer {
   padding: 4rem 2rem;
-  border-radius: 15px;
+  border-radius: 1em;
   width: 380px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  background-color: rgba(255, 255, 255, 0.8);
+  /* border: 1px solid white; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(185, 185, 185) 0px 0px 0px 1px;
+  background-color: black;
 }
 .loginContainer h4 {
   color: var(--primary-color);
@@ -60,12 +61,13 @@
   justify-content: center;
   gap: 10px;
   padding: 6px;
-  border-radius: 100px;
+  border-radius: 10px;
   margin-top: 5px;
   border: 2px solid black;
   position: relative;
   cursor: pointer;
   transition: all 0.3s;
+  background-color: rgb(24,24,27);
 }
 .googleImage {
   height: 33px;
