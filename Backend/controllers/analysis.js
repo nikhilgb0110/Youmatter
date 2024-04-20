@@ -10,6 +10,7 @@ const {
 
 const Report = require("../models/Report.js");
 const User = require("../models/User.js");
+const { sendWelcomeEmail } = require("./email.js");
 
 const doAnalysis = async (req, res) => {
   try {
@@ -33,12 +34,7 @@ const doAnalysis = async (req, res) => {
     });
     try {
       const user = await User.findOne({id : userId})
-      axios.post('https://mindmate-email-api.onrender.com/welcomeEmail',{
-      "emailId" : user.email,
-      "score" : analysis.score,
-      "analysis"  : analysis.report,
-      "keywords" : analysis.keywords
-  })
+      const data = sendWelcomeEmail(user.email,analysis.score,analysis.report,analysis.keywords)
     } catch (error) {
       console.log("error sending the message");
     }
