@@ -158,17 +158,19 @@ function Login() {
     }
   }, [error]);
   return (
-    <div className={styles.pageContainer}>
+    <div className="h-screen w-full bg-black   bg-grid-small-white/[0.3] relative flex items-center justify-center">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)]"></div>
+
       <div className={styles.pageContent}>
         <div className={styles.leftContainer}>
-          <div className={styles.loginContainer} onSubmit={handleSubmitButton}>
+          <div className={`${styles.loginContainer}`} onSubmit={handleSubmitButton}>
             <header>
               {isRegistered ? (
-                <h2>
+                <h2 className="text-xl">
                   Welcome Back <span>👋</span>
                 </h2>
               ) : (
-                <h2>
+                <h2 className="text-xl">
                   Register a New Account <span>👇</span>
                 </h2>
               )}
@@ -194,7 +196,7 @@ function Login() {
                 handleChange={handleLoginDataChange}
                 error={error.password}
                 placeholder="At least 8 characters"
-              />
+                />
               {isRegistered && loginError && <span className="text-center">Invalid credentials</span>}
               {!isRegistered && loginError && <span className="text-center">Error Creating Account</span>}
               <Button
@@ -204,10 +206,10 @@ function Login() {
                 logging={logging}
                 style={{
                   backgroundColor: isRegistered
-                    ? "rgb(144, 0, 64)"
+                  ? "rgb(144, 0, 64)"
                     : "rgb(0, 144, 101)",
-                }}
-              />
+                  }}
+                  />
               <div className="text-center mt-2 opacity-70">
                 <span style={{ font: `'Inter', sans-serif` }}>OR</span>
               </div>
@@ -216,7 +218,7 @@ function Login() {
                 onClick={() => {
                   handleLoginWithGoogle();
                 }}
-              >
+                >
                 <img src={GoogleIcon} alt="" className={styles.googleImage} />
                 <div>{isRegistered ? "Signin " : "Signup "}With Google</div>
               </div>
@@ -235,7 +237,7 @@ function Login() {
                       password: "",
                     });
                   }}
-                >
+                  >
                   {isRegistered ? "Sign up" : "Sign in"}
                 </span>
               }

@@ -44,32 +44,19 @@ async function LoginWithGoogle() {
     const user = data.user;
     console.log(user);
     //  //from here we will send data to backend to store the email
-    const info = getAdditionalUserInfo(data).isNewUser; //If this is true we will send the mail along with uid of firebase and uuid of chat
+    // const info = getAdditionalUserInfo(data).isNewUser; //If this is true we will send the mail along with uid of firebase and uuid of chat
     //  // If this is false we will just user the access token...
-    console.log(info);
-
-    if (info) {
       const headers = {
         token: "Bearer " + user.accessToken,
       };
       console.log(headers);
 
       const signup = await axios.post(
-        process.env.REACT_APP_API_LINK + "/signup",
+        process.env.REACT_APP_API_LINK + "/signinwithgoogle",
         {},
         { headers, withCredentials: true }
       );
-    } else {
-      const headers = {
-        token: "Bearer " + user.accessToken,
-      };
-      console.log(headers);
-      const signup = await axios.post(
-        process.env.REACT_APP_API_LINK + "/login",
-        {},
-        { headers, withCredentials: true }
-      );
-    }
+  
     return true;
   } catch (error) {
     console.log(error.message);

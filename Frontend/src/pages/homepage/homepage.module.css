@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
 .homepageContainer {
-  background-image: linear-gradient(135deg, #f7f3ef 0%, #c0aa99 100%);
+  background-image: linear-gradient(135deg, #00823d 0%, #1c0033 100%);
   background-attachment: fixed;
   /* background-color: #f6f3ef; */
   min-height: calc(100vh - 70px);
   display: grid;
   grid-template-rows: auto 1fr;
 
-  font-family: "Poppins", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .homepageContainer .logoContainer {
@@ -30,7 +30,7 @@
 .homepageContainer > header button {
   font-size: 16px;
   padding: 0.6em 1.2em;
-  border: 2px solid rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   background-color: transparent;
   cursor: pointer;
@@ -38,8 +38,8 @@
 }
 
 .homepageContainer > header button:hover {
-  box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .homepageContainer main {
@@ -85,18 +85,16 @@
   /* box-shadow: -2px 2px 12px 0 rgb(0, 0, 0, 0.1); */
 }
 .aboutUs {
-  background-image: linear-gradient(
-    135deg,
-    rgba(168, 8, 67, 0.913) 0%,
-    rgba(122, 12, 5, 0.913) 100%
-  );
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
   color: rgb(255, 255, 255);
   padding: 50px;
   margin: auto;
   width: 80%;
   border-radius: 15px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 2px 0px,
+    rgba(255, 255, 255, 0.1) 0px 2px 6px 2px;
 }
 
 .aboutUs > div {
@@ -104,25 +102,22 @@
 }
 
 .statsBox {
-  background-image: linear-gradient(
-    135deg,
-    rgba(75, 75, 75, 0.2) 0%,
-    rgba(29, 29, 29, 0.3) 100%
-  );
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+
   padding: 50px;
   margin: auto;
   margin-top: 50px;
   width: 80%;
   border-radius: 15px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 2px 0px,
+    rgba(255, 255, 255, 0.1) 0px 2px 6px 2px;
 }
 .lato {
   /* font-family: "Lato", sans-serif; */
 }
 .statsSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 .Articles {
   display: grid;
@@ -297,6 +292,9 @@
     width: auto;
     margin-left: 20px;
     margin-right: 20px;
-    padding: 10px;
+    padding: 25px 10px 10px 10px;
+  }
+  .aboutUs {
+    padding: 25px;
   }
 }

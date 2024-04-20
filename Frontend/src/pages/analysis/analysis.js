@@ -1,7 +1,6 @@
 import styles from "./analysis.module.css";
 import { Logo } from "../../svgs/logoSVG";
 import { useNavigate } from "react-router-dom";
-import Image from "../../svgs/SVG/SVG/FrontImage3.svg";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Markdown from "react-markdown";

@@ -1,15 +1,16 @@
 import styles from "./homepage.module.css";
 import { Logo } from "../../svgs/logoSVG";
 import { useNavigate } from "react-router-dom";
-import Image from "../../svgs/SVG/SVG/FrontImage3.svg";
-import { useCookies } from "react-cookie";
+import Image from "../../svgs/hero_img.png";
+import ImagePh from "../../svgs/hero_img_ph.png";
 import axios from "axios";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
 
 import { useContext, useRef } from "react";
 import LoginContext from "../../context/context";
 import Articles from "../Articles/Articles";
-import piechart from "../../svgs/piechart.png";
+import { ContainerScroll } from "../../components/ui/container-scroll-animation";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -75,62 +76,66 @@ function Homepage() {
         </div>
       </header>
       <main style={{ minHeight: "100vh" }}>
-        <section className={styles.leftSection}>
-          <h1>
-            Mental Health <br /> Solved with{" "}
-            <span className={styles.ai}>AI</span>
-          </h1>
-          <div
-            className={styles.chatWithUs}
-            onClick={() => {
-              navigate("/message");
-            }}
+        <div className="flex flex-col overflow-hidden">
+          <ContainerScroll
+            titleComponent={
+              <>
+                <h1 className="text-3xl md:text-4xl">
+                  <div
+                    className=" group justify-center flex gap-1 cursor-pointer w-fit mx-auto text-green-200"
+                    onClick={() => navigate("/message")}
+                  >
+                    {`Let's Chat `}
+                    <IoIosArrowRoundForward className=" group-hover:translate-x-2 transition-all text-4xl md:5xl" />
+                  </div>
+                  <br />
+                  <span className="text-5xl md:text-[6rem] font-semibold mt-1 leading-none">
+                    <span className=" text-yellow-300">AI Powered</span> Mental
+                    Health Chatbot
+                  </span>
+                </h1>
+              </>
+            }
           >
-            chat with us...<span className={styles.cursor}></span>
-          </div>
-        </section>
-        <section className={styles.rightSection}>
-          <img src={Image} alt="" />
-        </section>
-      </main>
-      <section
-        ref={about}
-        className={`flex flex-col items-center gap-2 mb-4 ${styles.aboutUs}`}
-      >
-        <h1 className={`text-4xl font-bold mb-4 ${styles.lato}`}>About Us</h1>
-        <div className={`text-center text-lg ${styles.lato}`}>
-          Welcome to our mental health chat assistant platform. We are here for
-          you – a supportive community where our empathetic AI actively listens,
-          offers encouragement, and provides valuable resources. Together, we
-          prioritize your well-being, fostering open dialogue around mental
-          health. You're not alone; we, as your dedicated companions, stand with
-          you on your journey. Let's build a space where understanding and
-          support thrive.
+            <img
+              src={Image}
+              alt="hero"
+              height={720}
+              width={1400}
+              className="mx-auto rounded-2xl object-cover h-full hidden sm:block"
+              draggable={false}
+            />
+            <img
+              src={ImagePh}
+              alt="hero"
+              height={1200}
+              width={700}
+              className="mx-auto rounded-2xl object-cover h-full black sm:hidden"
+              draggable={false}
+            />
+          </ContainerScroll>
         </div>
-      </section>
+      </main>
+
       <section className={`mt-8 ${styles.statsBox}`}>
-        <h1 className="text-center text-4xl font-bold mb-8">
-          Mental health Issues are Common
-        </h1>
+        <h1 className="text-center text-4xl mb-8">Do you know?</h1>
         <div className={styles.statsSection}>
-          <div>
-            <img src={piechart} alt="" />
-          </div>
           <div className="text-center flex flex-col justify-center gap-4">
-            <h2 className="text-2xl">Do You know?</h2>
-            <p className="text-lg text-justify">
-              Mental health conditions are not uncommon. Hundreds of millions
-              suffer from them yearly, and many more do over their lifetimes.
-              It’s estimated that 1 in 3 women and 1 in 5 men will experience
-              major depression in their lives. Other conditions, such as
-              schizophrenia and bipolar disorder, are less common but still have
-              a large impact on people’s lives.
+            <p className="text-xl text-justify">
+              <span className=" border-b-2 border-yellow-300">
+                Mental health conditions are not uncommon.
+              </span>{" "}
+              Hundreds of millions suffer from them yearly, and many more do
+              over their lifetimes. It’s estimated that 1 in 3 women and 1 in 5
+              men will experience major depression in their lives. Other
+              conditions, such as schizophrenia and bipolar disorder, are less
+              common but still have a large impact on people’s lives.
             </p>
           </div>
         </div>
       </section>
-      <section className="mt-8" ref={articles}>
-        <h1 className="text-center text-3xl font-bold">Editor's Pick</h1>
+      <section className="my-32" ref={articles}>
+        <h1 className="text-center text-4xl mb-16">Editor's Pick</h1>
         <div className="xl:m-auto">
           <div className={styles.Articles}>
             <Articles
@@ -168,6 +173,21 @@ function Homepage() {
           </div>
         </div>
       </section>
+      <section
+        ref={about}
+        className={`flex flex-col items-center gap-2 mb-4 ${styles.aboutUs}`}
+      >
+        <h1 className={`text-4xl mb-4 ${styles.lato}`}>About Us</h1>
+        <div className={`text-center text-xl ${styles.lato}`}>
+          Welcome to our mental health chat assistant platform. We are here for
+          you – a supportive community where our empathetic AI actively listens,
+          offers encouragement, and provides valuable resources. Together, we
+          prioritize your well-being, fostering open dialogue around mental
+          health. You're not alone; we, as your dedicated companions, stand with
+          you on your journey. Let's build a space where understanding and
+          support thrive.
+        </div>
+      </section>
       <footer className={styles.footer}>
         <div className="m-auto h-full" style={{ maxWidth: "1320px" }}>
           <div className="grid grid-cols-2 h-5/6">
@@ -178,6 +198,8 @@ function Homepage() {
               <div onClick={articlesClick} className="cursor-pointer">
                 Articles
               </div>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-3 text-lg">
               <div
                 onClick={() => {
                   navigate("/message");
@@ -186,23 +208,23 @@ function Homepage() {
               >
                 Chat
               </div>
-            </div>
-            <div className="flex flex-col justify-center items-center gap-3 text-lg">
+              <div
+                onClick={() => {
+                  navigate("/analysis");
+                }}
+                className="cursor-pointer"
+              >
+                Analysis
+              </div>
               <a
-                href="https://github.com/subharthihazra/MindMate"
+                href="https://github.com/nikhilgb0110/Youmatter"
                 className=" text-white"
               >
                 <div>Github</div>
               </a>
-              <a
-                href="https://www.youtube.com/watch?v=fUD5HcZhtQI"
-                className=" text-white"
-              >
-                <div>Youtube</div>
-              </a>
             </div>
           </div>
-          <div className="text-center">© 2024 by Algovengers</div>
+          <div className="text-center">© 2024 | YouMatter</div>
         </div>
       </footer>
     </div>

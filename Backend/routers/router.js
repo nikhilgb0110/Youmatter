@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { connectWithChatBot } = require("../controllers/chat.js");
 const { doAnalysis, getAnalysis } = require("../controllers/analysis.js");
 const { userMiddleware } = require("../middlewares/genUserId.js");
-const { signup, login, isUser, logout } = require("../controllers/user.js");
+const { signup, login, isUser, logout, signinwithGoogle } = require("../controllers/user.js");
 
 const router = Router();
 router.route("/cron").get((req, res) => {
@@ -15,5 +15,6 @@ router.route("/signup").post(signup);
 router.route("/login").post(login);
 router.route("/isUser").get(isUser);
 router.route("/logout").get(logout);
+router.route("/signinwithgoogle").post(signinwithGoogle)
 
 module.exports = router;
