@@ -16,10 +16,13 @@ async function sendWelcomeEmail(emailId,score,analysis,keywords){
         const EmailToSend = welcomeEmail(score,analysis,articles)
         const emailSent = await email.sendEmail(emailId,EmailToSend)
         if(emailSent){
+            console.log("Email sent")
         }
         else{
+            
         }
     } catch (error) {
+        console.log(error.message)
     }
 }
 
