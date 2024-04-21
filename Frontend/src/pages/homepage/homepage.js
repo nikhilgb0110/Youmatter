@@ -192,14 +192,23 @@ function Homepage() {
         <div className="m-auto h-full" style={{ maxWidth: "1320px" }}>
           <div className="grid grid-cols-2 h-5/6">
             <div className="flex flex-col justify-center items-center gap-3 text-lg">
-              <div onClick={aboutClick} className="cursor-pointer">
-                About
+              <div>
+              NIKHIL G B 4AL20AI026
               </div>
-              <div onClick={articlesClick} className="cursor-pointer">
-                Articles
+              <div  >
+              CHIRAG G 4AL20AI010
+              </div>
+              <div>
+              PRATHAM P 4AL20AI031
+              </div>
+              <div>
+              PRATHIK N R 4AL20AI032
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-3 text-lg">
+              <div onClick={aboutClick} className="cursor-pointer">
+                About
+              </div>
               <div
                 onClick={() => {
                   navigate("/message");
