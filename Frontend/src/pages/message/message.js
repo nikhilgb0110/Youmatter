@@ -30,7 +30,14 @@ function Message() {
   const navigate = useNavigate();
   const { logout, loggedIn } = useContext(LoginContext);
   const mainRef = useRef();
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState([
+    {
+      message:
+        "I am YouMatterBOT. Tell me your name, age, gender and the problem you are facing, so that I can help you with.",
+      own: false,
+      isLoading: false,
+    },
+  ]);
   const [chatState, setChatState] = useState("busy");
   const [chatInit, setChatInit] = useState(false);
   const [message, setMessage] = useState("");

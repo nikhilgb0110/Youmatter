@@ -73,7 +73,9 @@ const connectWithChatBot = async (req, res) => {
           }
 
           // Prompt by the user sent to gemini
-          const result = await chat.sendMessageStream(data.prompt);
+          const result = await chat.sendMessageStream(
+            `Prompt for YouMatterBOT: ${data.prompt}`
+          );
           let respText = "";
           wss.send(JSON.stringify({ type: "server:response:start" }));
 
